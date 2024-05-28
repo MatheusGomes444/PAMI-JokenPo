@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PedraPapelETesoura.Views.JoKenPoView"
+             Title="JoKenPoView">
+    <ScrollView BackgroundColor="#f6f6f6">
+        <VerticalStackLayout Spacing="30" Padding="20">
+            <FlexLayout AlignContent="Center">
+                <Label Text="Digite seu nome" FlexLayout.AlignSelf="Center"/>
+                <HorizontalStackLayout><Entry MinimumWidthRequest="100" Placeholder="{Binding Name}" BackgroundColor="#fff" HorizontalOptions="FillAndExpand"/>
+                    
+                </HorizontalStackLayout>
+            </FlexLayout>
+            <Image Source="{Binding PlayerImage}" HeightRequest="50"/>
+            <Picker x:Name="SelectOptionPicker" Title="Selecione uma opção" SelectedIndex="{Binding Escolha}" BackgroundColor="#fff">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>pedra</x:String>
+                        <x:String>papel</x:String>
+                        <x:String>tesoura</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Button Text="Jogar" BackgroundColor="#d5342a" Command="{Binding MakeChoiceCommand}" />
+            <BoxView Color="#d5342a"
+                HeightRequest="2"
+                HorizontalOptions="Fill" />
+
+            <Label
+                Text="{Binding Result}"/>
+            <Image Source="{Binding EnemyImage}" HeightRequest="50"/>
+            <HorizontalStackLayout>
+                <Label Text="Pontuação do jogador: "/>
+                <Label Text="{Binding Pontuacao}"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+
+
+    </ScrollView>
+</ContentPage>
